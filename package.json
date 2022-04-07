@@ -1,6 +1,6 @@
 {
-  "name": "ado-via-pat",
-  "version": "0.0.0",
+  "name": "ado-team-iteration-velocity",
+  "version": "0.8.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
