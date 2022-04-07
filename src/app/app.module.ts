@@ -1,16 +1,25 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CurrentIterationFormComponent } from './current-iteration-form/current-iteration-form.component';
+import { WorkItemFieldsAdapter } from './models/work-item';
+import { WorkItemsDisplayComponent } from './work-items-display/work-items-display.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CurrentIterationFormComponent,
+    WorkItemsDisplayComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [WorkItemFieldsAdapter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
