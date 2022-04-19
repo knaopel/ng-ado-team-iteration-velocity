@@ -54,7 +54,7 @@ export class AdoService {
     const url = this.getIterationWorkItemsUrl.replace('{0}', teamId).replace('{1}', iterationId);
     return this.http.get<WorkItemRelationsResult>(url, this.getHttpOptions(pat))
       .pipe(
-        tap(_ => this.log('fetched iteration')),
+        tap(_ => this.log('fetched iteration work items')),
         catchError(this.handleError<WorkItemRelationsResult>('getCurrentIteration'))
       );
   }
