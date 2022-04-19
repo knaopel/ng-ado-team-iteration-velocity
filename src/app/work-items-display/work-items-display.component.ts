@@ -22,7 +22,6 @@ export class WorkItemsDisplayComponent implements OnInit {
   constructor(private ado: AdoService) { }
 
   ngOnInit(): void {
-    // console.log(this.workItemRelations);
     this.getWorkItems();
   }
 
@@ -31,13 +30,11 @@ export class WorkItemsDisplayComponent implements OnInit {
       this.workItemRelations?.forEach(r => {
         this.ado.getWorkItem(this.pat, r.target.id)
           .subscribe((wi: WorkItem) => {
-            console.log(wi);
             this.workItems.push(wi);
             this.totalEffort = this.totalEffort + wi.fields.effort;
           })
       });
     }
-    console.log('getWorkItems() fired!')
   }
 
 

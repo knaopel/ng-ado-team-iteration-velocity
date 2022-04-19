@@ -31,11 +31,9 @@ export class CurrentIterationFormComponent implements OnInit {
   }
 
   setCurrentIteration(teamId: string): void {
-    // console.log(teamId);
     this.ado.getCurrentIteration(this.pat, teamId)
       .subscribe(iteration => {
         this.currentIteration = iteration.value[0];
-        console.log('this.currrentIteration = ', this.currentIteration);
       });
   }
 
@@ -48,17 +46,12 @@ export class CurrentIterationFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // console.log('onSubmit() fired');
     if (this.currentIteration) {
-      // console.log('this.currentIteration', this.currentIteration);
 
       this.ado.getIterationWorkItems(this.pat, this.currentTeamId, this.currentIteration?.id).subscribe(workitems => {
         this.submitted = true;
         this.workItemRelations = workitems.workItemRelations;
-        console.log('this.workItemRelations before filter', this.workItemRelations);
         this.workItemRelations = this.workItemRelations.filter((wir: WorkItemRelation, idx: number) => { return wir.rel === null });
-        console.log('this.workItemRelations after filter', this.workItemRelations);
-
       });
     }
   }

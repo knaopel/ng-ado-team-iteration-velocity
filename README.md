@@ -1,27 +1,13 @@
-# AdoViaPat
+# Angular Azure DevOps Team Iteration Velocity
+This project will produce a report of the team's velocity in the current sprint.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+## Before Use
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Run `npm install` to install the packages needed to run.
+1. Copy the and/or rename the `src/environments/config.sample.ts` file to `src/environments/config.ts`.
+1. Enter the Organization Name in place of `<REPLACE_WITH_ADO_ORGANIZATION>`. _(This is immediatley after the domain name in the URL. e.g. `https://dev.azure.com/organizationname`)_
+1. Replace `<REPLACE_WITH_ADO_PROJECT>` with the Name or ID of the Project. _(This is Organization Name in the URL. e.g. `https://dev.azure.com/organizationname/projectname`)_
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

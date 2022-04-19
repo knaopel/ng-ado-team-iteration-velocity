@@ -4,17 +4,17 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MessageService } from './message.service';
 import { IterationResult, Teams, WorkItem, WorkItemAdapter, WorkItemRelationsResult } from './models';
+import config from '../environments/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdoService {
-  private baseUrl = 'https://dev.azure.com/cunamutual'
+  private baseUrl = `https://dev.azure.com/${config.ORG}`
   private workItemUrl = `${this.baseUrl}/_apis/wit/workItems/{itemId}`
-  private listTeamsUrl = `${this.baseUrl}/_apis/projects/69c3faaa-601b-4ecb-827b-41c157c51ca1/teams?$mine=true&api-version=6.0`
-  private getIterationUrl = `${this.baseUrl}/CXU/{0}/_apis/work/teamsettings/iterations?$timeframe=current&api-version=6.0`
-  private getIterationWorkItemsUrl = `${this.baseUrl}/CXU/{0}/_apis/work/teamsettings/iterations/{1}/workitems?api-version=6.0-preview.1`;
-  // private encodedPAT: string = btoa(":xbryhimvzo6kalq22unulsnsqroy3z5lj3dxk3wlikgvfx4kio5a");
+  private listTeamsUrl = `${this.baseUrl}/_apis/projects/${config.PROJECT}/teams?$mine=true&api-version=6.0`
+  private getIterationUrl = `${this.baseUrl}/${config.PROJECT}/{0}/_apis/work/teamsettings/iterations?$timeframe=current&api-version=6.0`
+  private getIterationWorkItemsUrl = `${this.baseUrl}/${config.PROJECT}/{0}/_apis/work/teamsettings/iterations/{1}/workitems?api-version=6.0-preview.1`;
 
   constructor(
     private http: HttpClient,
