@@ -25,6 +25,7 @@
     </form>
 
   </div>
-  <work-items-display *ngIf="workItemRelations.length > 0" [workItemRelations]="workItemRelations" [pat]="pat">
+  <work-items-display *ngIf="workItemRelations.length > 0" [workItemRelations]="workItemRelations"
+    [sprintName]="currentIteration?.name" [pat]="pat">
   </work-items-display>
 </div>

@@ -15,6 +15,7 @@ import { WorkItemRelation } from '../models/work-item-relation';
 export class WorkItemsDisplayComponent implements OnInit {
   @Input() pat: string = '';
   @Input() workItemRelations?: WorkItemRelation[];
+  @Input() sprintName?: string;
   workItems: WorkItem[] = [];
   totalEffort = 0;
 
