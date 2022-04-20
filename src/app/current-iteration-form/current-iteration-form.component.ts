@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdoService } from '../ado.service';
 import { Iteration } from '../models/iteration';
+import { ProcessTemplate } from '../models/process-template';
+import { ProjectProperties } from '../models/project-properties';
 import { Team } from '../models/team';
 import { WorkItemRelation } from '../models/work-item-relation';
 
@@ -15,6 +17,7 @@ export class CurrentIterationFormComponent implements OnInit {
   teams: Team[] = [];
   workItemRelations: WorkItemRelation[] = [];
   currentTeamId: string = '';
+  projectProcTemp?: ProcessTemplate;
   currentIteration?: Iteration;
   submitted = false;
   pat = '';
@@ -23,6 +26,14 @@ export class CurrentIterationFormComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getTeams();
+  }
+
+  getProjectProcessTemplate(): void {
+    this.ado.getProjectProcessTemplate(this.pat)
+      .subscribe(template => {
+        this.projectProcTemp = template
+        console.log(this.projectProcTemp);
+      });
   }
 
   getTeams(): void {
@@ -38,6 +49,7 @@ export class CurrentIterationFormComponent implements OnInit {
   }
 
   onPatChange(): void {
+    this.getProjectProcessTemplate();
     this.getTeams();
   }
 

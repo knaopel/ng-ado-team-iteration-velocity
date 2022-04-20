@@ -10,7 +10,7 @@
   <tbody>
     <tr *ngFor="let workItem of workItems">
       <td>{{workItem.id}}</td>
-      <td>{{workItem.fields.effort}}</td>
+      <td>{{projectProcessTemplate === 'Agile' ? workItem.fields.storyPoints : workItem.fields.effort}}</td>
       <td>{{workItem.fields.title}}</td>
     </tr>
   </tbody>
