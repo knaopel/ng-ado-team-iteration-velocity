@@ -16,6 +16,7 @@ export class WorkItemsDisplayComponent implements OnInit {
   @Input() pat: string = '';
   @Input() workItemRelations?: WorkItemRelation[];
   @Input() sprintName?: string;
+  @Input() projectProcessTemplate?: string;
   workItems: WorkItem[] = [];
   totalEffort = 0;
 
@@ -31,7 +32,8 @@ export class WorkItemsDisplayComponent implements OnInit {
         this.ado.getWorkItem(this.pat, r.target.id)
           .subscribe((wi: WorkItem) => {
             this.workItems.push(wi);
-            this.totalEffort = this.totalEffort + wi.fields.effort;
+            const effort = this.projectProcessTemplate === 'Agile' ? wi.fields.storyPoints : wi.fields.effort;
+            this.totalEffort = this.totalEffort + effort;
           })
       });
     }

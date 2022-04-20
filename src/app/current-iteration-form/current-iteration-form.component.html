@@ -26,6 +26,6 @@
 
   </div>
   <work-items-display *ngIf="workItemRelations.length > 0" [workItemRelations]="workItemRelations"
-    [sprintName]="currentIteration?.name" [pat]="pat">
+    [sprintName]="currentIteration?.name" [projectProcessTemplate]="projectProcTemp?.name" [pat]="pat">
   </work-items-display>
 </div>
